@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="in/Login"></script>
+<div ng-controller="linkedInController" class="container">
+    <a href="http://FreeHTMLtoPDF.com/?convert=">Download as PDF</a>
+    <div class="row">
+        <div class="col-md-12">
+            <img class="profile-picture img-responsive pull-right" ng-src="{{ pictureUrl }}"/>
+            <h3>{{ formattedName }}</h3>
+            <div ng-repeat="phoneNumber in phoneNumbers">
+                <abbr title="{{ phoneNumber.phoneType }}">P:</abbr> {{ phoneNumber.phoneNumber }} <br/>
+            </div>
+            <abbr title="Email">E:</abbr> <a href="'mailto://' + {{ email }}">{{ email }}</a>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Professional Summary</h4>
+            <p>
+                {{ professionalSummary }}
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Experience</h4>
+            <div ng-repeat="position in positions">
+                <strong>{{ position.title }} | {{ position.company.name }} | {{ position.startDate.month }} / {{ position.startDate.year }} - Present</strong>
+                <p>
+                    {{ position.summary }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Education</h4>
+            <div ng-repeat="education in educations">
+                <strong>{{ education.degree }} | {{ education.schoolName }}</strong>
+                <p>
+                    Field of Study: {{ education.fieldOfStudy }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/app/linkedInControllers.js"></script>
+}
